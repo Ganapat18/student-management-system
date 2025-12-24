@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Management</title>
+</head>
+<body>
+
+<h2>Add Student</h2>
+<form method="POST">
+    {% csrf_token %}
+    <input name="name" placeholder="Name" required><br><br>
+    <input name="roll_no" placeholder="Roll No" required><br><br>
+    <input name="course" placeholder="Course" required><br><br>
+    <input name="email" placeholder="Email" required><br><br>
+    <button>Add Student</button>
+</form>
+
+<hr>
+
+<h2>Student List</h2>
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th>Roll No</th>
+        <th>Course</th>
+        <th>Email</th>
+        <th>Action</th>
+    </tr>
+
+    {% for s in students %}
+    <tr>
+        <td>{{ s.name }}</td>
+        <td>{{ s.roll_no }}</td>
+        <td>{{ s.course }}</td>
+        <td>{{ s.email }}</td>
+        <td>
+            <form method="POST" style="display:inline;">
+                {% csrf_token %}
+                <button name="delete" value="{{ s.id }}">Delete</button>
+            </form>
+        </td>
+        <td>
+    <a href="/edit/{{ s.id }}/">Edit</a>
+    |
+    <form method="POST" style="display:inline;">
+        {% csrf_token %}
+        <button name="delete" value="{{ s.id }}">Delete</button>
+    </form>
+</td>
+
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>
