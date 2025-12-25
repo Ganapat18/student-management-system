@@ -3,6 +3,8 @@
 A full-stack **Student Management System** built using **Django** as the backend API and **Express.js** as the frontend server.  
 This project performs complete **CRUD operations** with a clean UI and REST API integration.
 
+Live preview link : https://student-management-system-1-ep82.onrender.com/
+
 ---
 
 ## 🚀 Features
