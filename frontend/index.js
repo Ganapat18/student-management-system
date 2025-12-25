@@ -82,7 +82,7 @@ app.post('/', async (req, res) => {
 
 // EDIT PAGE
 app.get('/edit/:id', async (req, res) => {
-    const { data } = await axios.get('http://127.0.0.1:8000/api/students/');
+    const { data } = await axios.get('https://student-management-system-iz7d.onrender.com/api/students/');
     const s = data.find(x => x.id == req.params.id);
 
     res.send(`
