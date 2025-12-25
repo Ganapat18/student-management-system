@@ -7,7 +7,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // HOME
 app.get('/', async (req, res) => {
-    const { data } = await axios.get('http://127.0.0.1:8000/api/students/');
+    const { data } = await axios.get("https://student-management-system-iz7d.onrender.com/api/students/");
 
     let html = `
 <!DOCTYPE html>
@@ -76,7 +76,7 @@ app.get('/', async (req, res) => {
 
 // ADD
 app.post('/', async (req, res) => {
-    await axios.post('http://127.0.0.1:8000/api/students/', req.body);
+    await axios.post('https://student-management-system-iz7d.onrender.com/api/students/', req.body);
     res.redirect('/');
 });
 
@@ -100,7 +100,7 @@ app.get('/edit/:id', async (req, res) => {
 // UPDATE
 app.post('/edit/:id', async (req, res) => {
     await axios.put(
-        `http://127.0.0.1:8000/api/students/?id=${req.params.id}`,
+        `https://student-management-system-iz7d.onrender.com/api/students/?id=${req.params.id}`,
         req.body
     );
     res.redirect('/');
@@ -109,7 +109,7 @@ app.post('/edit/:id', async (req, res) => {
 // DELETE
 app.post('/delete', async (req, res) => {
     await axios.delete(
-        `http://127.0.0.1:8000/api/students/?id=${req.body.id}`
+        `https://student-management-system-iz7d.onrender.com/api/students/?id=${req.body.id}`
     );
     res.redirect('/');
 });
